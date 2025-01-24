@@ -22,6 +22,8 @@ public class SecurityConfig {
             .pathMatchers("/auth/**").permitAll()
             .pathMatchers("/api/customer-service/**").permitAll()
             .pathMatchers("/api/wallet-service/**").hasAnyRole("USER", "ADMIN")
+            .pathMatchers("/api/account-service/**").permitAll()
+            .pathMatchers("/api/debitcard-service/**").permitAll()
             .anyExchange().authenticated()
         )
         .addFilterAt(authenticationFilter, SecurityWebFiltersOrder.AUTHENTICATION)
